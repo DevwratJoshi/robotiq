@@ -200,7 +200,11 @@ void MimicJointPlugin::UpdateChild()
       if(a!=a)
         a = angle;
       double error = angle-a;
+#if GAZEBO_MAJOR_VERSION >= 9
       double effort = ignition::math::clamp(pid_.computeCommand(error, period), -max_effort_, max_effort_);
+#else 
+      double effort = gazebo::math::clamp(pid_.computeCommand(error, period), -max_effort_, max_effort_);
+#endif
     }
     else
     {
