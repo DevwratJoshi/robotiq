@@ -1,0 +1,6 @@
+gazebo_gripper:
+        type: "position_controllers/GripperActionController"
+        joint: a_bot_robotiq_85_left_knuckle_joint
+        action_monitor_rate: 20
+        goal_tolerance: 0.002
+
