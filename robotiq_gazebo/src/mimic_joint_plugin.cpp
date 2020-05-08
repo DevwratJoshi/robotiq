@@ -50,8 +50,7 @@ MimicJointPlugin::~MimicJointPlugin()
   #if GAZEBO_MAJOR_VERSION < 9
  	 gazebo::event::Events::DisconnectWorldUpdateBegin(this->updateConnection);
   #endif
-  //event::Events::DisconnectWorldUpdateBegin(this->updateConnection);
-	this->updateConnection.reset();
+  this->updateConnection.reset();
   kill_sim = true;
    
 }

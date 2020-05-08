@@ -1,5 +1,7 @@
 #!/usr/bin/python
-     
+
+#Example program to demonstrate the use of the GripperCommandAction gripper controller, to be used with the gazebo_ros_control Gazebo plugin
+ 
 import rospy
 import actionlib
 from control_msgs.msg import GripperCommandGoal, GripperCommandActionResult, GripperCommandAction
@@ -7,7 +9,8 @@ from control_msgs.msg import GripperCommandGoal, GripperCommandActionResult, Gri
 rospy.init_node('gripper_control')
      
     # Create an action client
-client = actionlib.SimpleActionClient('/gazebo_gripper/gripper_cmd', GripperCommandAction)
+    #Be sure to spawn the required controller beforehand, of type positionControllers/GripperActionController
+client = actionlib.SimpleActionClient('/a_bot_gripper_controller/gripper_cmd', GripperCommandAction)
         
     # Wait until the action server has been started and is listening for goals
 client.wait_for_server()
